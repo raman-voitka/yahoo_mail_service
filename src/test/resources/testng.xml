@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="run all tests" verbose="2">
+    <test name="test mail service">
+        <classes>
+            <class name="task_3_selenium.MailYahooTest"></class>
+        </classes>
+    </test>
+</suite>

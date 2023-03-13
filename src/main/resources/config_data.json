@@ -1,0 +1,7 @@
+{
+  "homepage.url":"https://www.yahoo.com/",
+  "driver.type":"chrome",
+  "page.load.timeout":"30",
+  "driver.wait.time":"15",
+  "screenshot.path":"target/surefire-reports/"
+}
