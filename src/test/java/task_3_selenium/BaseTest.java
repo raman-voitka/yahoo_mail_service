@@ -2,20 +2,14 @@ package task_3_selenium;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import org.apache.commons.io.FileUtils;
 import org.assertj.core.api.SoftAssertions;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.asserts.SoftAssert;
 import task_3_selenium.model.EmailModel;
 import task_3_selenium.pageobject.*;
-
-import java.io.File;
-import java.io.IOException;
 
 import static task_3_selenium.utils.RandomTestDataUtils.getRandomEmailSubjectOrSubject;
 import static task_3_selenium.utils.TestDataUtils.testData;
@@ -46,24 +40,35 @@ public class BaseTest {
     }
 
     protected void performLogin() {
+        test.log(Status.INFO, "click 'sign in' button");
         homePage.clickSignInButton();
+        test.log(Status.INFO, "fill in email field");
         loginPage.fillEmailField();
+        test.log(Status.INFO, "click 'next' button");
         loginPage.clickNextButton();
+        test.log(Status.INFO, "fill in password field");
         passwordPage.fillPasswordField();
+        test.log(Status.INFO, "click 'next' button");
         passwordPage.clickNextButton();
     }
 
     protected void createAndSaveEmailAsDraft() {
+        test.log(Status.INFO, "click 'mail' button");
         userPage.clickMailButton();
+        test.log(Status.INFO, "click 'create new email' button");
         mailPage.clickCreateNewMailButton();
+        test.log(Status.INFO, "fill out addressee field");
         createEmailPage.fillAddresseeField();
         String subjectField = getRandomEmailSubjectOrSubject();
+        test.log(Status.INFO, "fill out subject field");
         createEmailPage.fillSubjectField(subjectField);
         String bodyField = getRandomEmailSubjectOrSubject();
+        test.log(Status.INFO, "fill out body field");
         createEmailPage.fillBodyField(bodyField);
         email.setAddressee((String) testData.get("email.addressee"));
         email.setSubject(subjectField);
         email.setBody(bodyField);
+        test.log(Status.INFO, "click 'draft' directory");
         mailPage.clickDraftDirectory();
     }
 

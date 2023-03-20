@@ -12,7 +12,7 @@ public class LoginPage extends BasePage {
 
     @Step("Fill in login field")
     public void fillEmailField() {
-        if (isListOfWebElementsEmpty(EMAIL_FIELD)) {
+        if (isListOfWebElementsNotEmpty(EMAIL_FIELD)) {
             fillTheField(EMAIL_FIELD, (String) testData.get("yahoo.login"));
         } else {
             clickElement(xpath(String.format(SAVED_EMAIL, testData.get("yahoo.login"))));

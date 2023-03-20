@@ -18,6 +18,6 @@ public class HomePage extends BasePage {
 
     @Step("Try to find web element which doesn't exist on the page")
     public boolean findNotExistWebElement() {
-        return isElementDisplayed(UNIQUE_PAGE_ELEMENT);
+        return isElementDisplayed(NON_EXISTENT_PAGE_ELEMENT);
     }
 }

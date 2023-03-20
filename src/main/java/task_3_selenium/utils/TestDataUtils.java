@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static task_3_selenium.utils.LoggerUtils.LOG_TEST_DATA_UTILS;
+import static task_3_selenium.utils.SimpleLoggerUtils.SIMPLE_LOG_TEST_DATA_UTILS;
 
 public class TestDataUtils {
 
@@ -23,7 +23,7 @@ public class TestDataUtils {
             file = new FileReader(TEST_DATA_PATH);
             return new ObjectMapper().readValue(file, HashMap.class);
         } catch (IOException e) {
-            LOG_TEST_DATA_UTILS.error("file 'test_data.json' not found");
+            SIMPLE_LOG_TEST_DATA_UTILS.error("file 'test_data.json' not found");
             return null;
         } finally {
             try {
@@ -31,7 +31,7 @@ public class TestDataUtils {
                     file.close();
                 }
             } catch (IOException e) {
-                LOG_TEST_DATA_UTILS.error("TEST_DATA IO stream closing error");
+                SIMPLE_LOG_TEST_DATA_UTILS.error("TEST_DATA IO stream closing error");
             }
         }
     }

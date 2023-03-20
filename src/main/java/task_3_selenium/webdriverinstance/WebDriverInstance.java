@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import static task_3_selenium.utils.ConfigDataUtils.configData;
-import static task_3_selenium.utils.LoggerUtils.LOG_WEB_DRIVER_DISCOVERY;
+import static task_3_selenium.utils.SimpleLoggerUtils.SIMPLE_LOG_WEB_DRIVER_DISCOVERY;
 import static task_3_selenium.webdriverinstance.BrowserFactory.getDriverCreator;
 
 public class WebDriverInstance {
@@ -17,7 +17,7 @@ public class WebDriverInstance {
         try {
             remoteWebDriver.set(getDriverCreator((String) configData.get("driver.type")));
         } catch (NullPointerException | ExceptionInInitializerError e) {
-            LOG_WEB_DRIVER_DISCOVERY.error("Web driver initialization error");
+            SIMPLE_LOG_WEB_DRIVER_DISCOVERY.error("Web driver initialization error");
         }
     }
 

@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static task_3_selenium.utils.LoggerUtils.LOG_CONFIG_DATA_UTILS;
+import static task_3_selenium.utils.SimpleLoggerUtils.SIMPLE_LOG_CONFIG_DATA_UTILS;
 
 public class ConfigDataUtils {
 
@@ -23,7 +23,7 @@ public class ConfigDataUtils {
             file = new FileReader(CONFIG_DATA_PATH);
             return new ObjectMapper().readValue(file, HashMap.class);
         } catch (IOException e) {
-            LOG_CONFIG_DATA_UTILS.error("file 'config_data.json' not found");
+            SIMPLE_LOG_CONFIG_DATA_UTILS.error("file 'config_data.json' not found");
             return null;
         } finally {
             try {
@@ -31,7 +31,7 @@ public class ConfigDataUtils {
                     file.close();
                 }
             } catch (IOException e) {
-                LOG_CONFIG_DATA_UTILS.error("CONFIG_DATA IO stream closing error");
+                SIMPLE_LOG_CONFIG_DATA_UTILS.error("CONFIG_DATA IO stream closing error");
             }
         }
     }

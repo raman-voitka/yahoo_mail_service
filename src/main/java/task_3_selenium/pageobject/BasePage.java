@@ -11,6 +11,7 @@ import static task_3_selenium.utils.WaitUtils.*;
 public abstract class BasePage {
     protected static final By LIST_OF_EMAILS = By.xpath("//a[@data-test-id='message-list-item']");
     protected static final By UNIQUE_PAGE_ELEMENT = By.id("ybarAccountMenuOpener");
+    protected static final By NON_EXISTENT_PAGE_ELEMENT = By.id("YYY");
     protected static final By NEXT_BUTTON = By.id("login-signin");
     protected static final By LOG_OUT_BUTTON = By.id("profile-signout-link");
 
@@ -32,7 +33,7 @@ public abstract class BasePage {
         return waitForElementVisible(by).isDisplayed();
     }
 
-    public boolean isListOfWebElementsEmpty(By by) {
+    public boolean isListOfWebElementsNotEmpty(By by) {
         return !getDriverInstance().findElements(by).isEmpty();
     }
 

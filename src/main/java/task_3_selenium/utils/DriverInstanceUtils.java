@@ -6,7 +6,7 @@ import task_3_selenium.webdriverinstance.WebDriverInstance;
 import static java.lang.Integer.parseInt;
 import static java.time.Duration.ofSeconds;
 import static task_3_selenium.utils.ConfigDataUtils.configData;
-import static task_3_selenium.utils.LoggerUtils.LOG_DRIVER_INSTANCE_UTILS;
+import static task_3_selenium.utils.SimpleLoggerUtils.SIMPLE_LOG_DRIVER_INSTANCE_UTILS;
 
 public class DriverInstanceUtils {
 
@@ -27,7 +27,7 @@ public class DriverInstanceUtils {
         try {
             driver.quit();
         } catch (Exception e) {
-            LOG_DRIVER_INSTANCE_UTILS.error("Close browser error: {}", e.getMessage(), e);
+            SIMPLE_LOG_DRIVER_INSTANCE_UTILS.error("Close browser error: {}", e.getMessage(), e);
         }
     }
 }
