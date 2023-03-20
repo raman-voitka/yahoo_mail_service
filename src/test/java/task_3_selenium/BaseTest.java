@@ -53,22 +53,16 @@ public class BaseTest {
     }
 
     protected void createAndSaveEmailAsDraft() {
-        test.log(Status.INFO, "click 'mail' button");
         userPage.clickMailButton();
-        test.log(Status.INFO, "click 'create new email' button");
         mailPage.clickCreateNewMailButton();
-        test.log(Status.INFO, "fill out addressee field");
         createEmailPage.fillAddresseeField();
         String subjectField = getRandomEmailSubjectOrSubject();
-        test.log(Status.INFO, "fill out subject field");
         createEmailPage.fillSubjectField(subjectField);
         String bodyField = getRandomEmailSubjectOrSubject();
-        test.log(Status.INFO, "fill out body field");
         createEmailPage.fillBodyField(bodyField);
         email.setAddressee((String) testData.get("email.addressee"));
         email.setSubject(subjectField);
         email.setBody(bodyField);
-        test.log(Status.INFO, "click 'draft' directory");
         mailPage.clickDraftDirectory();
     }
 
